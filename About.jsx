@@ -1,28 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
-
-export default function useReveal(threshold = 0.15) {
-  const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const element = ref.current
-    if (!element) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold, rootMargin: '0px 0px -10% 0px' }
-    )
-
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [threshold])
-
-  return [ref, visible]
+export default function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-logo">
+        Z<span className="dot">·</span>ENTIER
+      </div>
+      <div className="footer-text">
+        zentiertalent.com &nbsp;&nbsp; Precision hiring for the legal AI market
+      </div>
+    </footer>
+  )
 }

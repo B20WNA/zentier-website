@@ -1,40 +1,49 @@
-import useReveal from './useReveal'
-import { scrollToSection } from './scrollHelper'
+import { useState, useEffect } from 'react'
 
-export default function Hero() {
-  const [ref, visible] = useReveal()
+export default function Nav() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const handleClick = (e, id) => {
+    e.preventDefault()
+    setMenuOpen(false)
+    const target = document.getElementById(id)
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
-    <section id="home" className="hero">
-      <div ref={ref} className={`hero-inner container reveal ${visible ? 'is-visible' : ''}`}>
-        <div className="eyebrow">Legal AI Talent Specialists</div>
-        <h1 className="hero-title">
-          The legal AI market is moving.
-          <br />
-          <em>Most firms are still figuring out how to hire for it.</em>
-        </h1>
-        <p className="hero-sub">
-          Zentier works with law firms and legal technology companies on the hires
-          that shape what their AI capability becomes. We focus on one market, and
-          we know it in detail.
-        </p>
-        <div className="hero-actions">
-          <a
-            href="#contact"
-            className="btn-primary"
-            onClick={(e) => scrollToSection(e, 'contact')}
-          >
-            Start a conversation
-          </a>
-          <a
-            href="#approach"
-            className="btn-ghost"
-            onClick={(e) => scrollToSection(e, 'approach')}
-          >
-            Our approach
-          </a>
-        </div>
-      </div>
-    </section>
+    <nav className={`nav ${scrolled ? 'nav-scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+      <a href="#home" className="nav-logo" onClick={(e) => handleClick(e, 'home')}>
+        Z<span className="dot">·</span>ENTIER
+      </a>
+
+      <ul className="nav-links">
+        <li><a href="#about" onClick={(e) => handleClick(e, 'about')}>About</a></li>
+        <li><a href="#for-clients" onClick={(e) => handleClick(e, 'for-clients')}>For Clients</a></li>
+        <li><a href="#for-candidates" onClick={(e) => handleClick(e, 'for-candidates')}>For Candidates</a></li>
+        <li><a href="#intel" onClick={(e) => handleClick(e, 'intel')}>Intelligence</a></li>
+      </ul>
+
+      <a href="#contact" className="nav-cta" onClick={(e) => handleClick(e, 'contact')}>
+        Start a conversation
+      </a>
+
+      <button
+        className={`nav-toggle ${menuOpen ? 'open' : ''}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
   )
 }

@@ -1,65 +1,66 @@
 import useReveal from './useReveal'
 
-export default function Problem() {
+const pillars = [
+  {
+    num: '01',
+    title: 'Depth before search',
+    body: 'The brief comes first. We understand the role before we recruit for it, including what the firm is actually trying to build.',
+  },
+  {
+    num: '02',
+    title: 'A narrow channel',
+    body: 'We work in one market. Specialists exist because depth matters more than breadth when the problem is genuinely hard.',
+  },
+  {
+    num: '03',
+    title: 'The people not looking',
+    body: 'The candidates who make the biggest difference are rarely on the market. Finding them requires a network built on trust, not volume.',
+  },
+  {
+    num: '04',
+    title: 'Intelligence led',
+    body: 'We track this market continuously. That intelligence sits inside every search we run and every conversation we have.',
+  },
+]
+
+export default function Approach() {
   const [ref, visible] = useReveal()
 
   return (
-    <section id="problem" className="problem">
+    <section id="approach" className="approach">
       <div ref={ref} className={`container reveal ${visible ? 'is-visible' : ''}`}>
-        <div className="eyebrow eyebrow-light">The challenge</div>
-        <h2 className="section-title title-light">
-          A rare intersection.
-          <br />
-          <em>Rarely hired well.</em>
-        </h2>
+        <div className="eyebrow">How we work</div>
+        <h2 className="section-title">Precision before speed.</h2>
 
-        <div className="problem-grid">
-          <div className="problem-body">
+        <div className="approach-intro">
+          <div className="approach-body">
             <p>
-              Roles are being created that did not exist two years ago. The people
-              who can fill them sit at an unusual intersection: legal knowledge,
-              technical fluency, and the ability to operate inside institutions
-              changing faster than they expected.
+              We start with the brief, not the database. Before we search, we
+              work to understand what the role actually requires. Not what the
+              job description says, but what success looks like in twelve months,
+              what has been tried before, and what kind of person will work in
+              this particular firm at this particular moment.
             </p>
             <p>
-              That combination is rare. It does not appear on job boards. It is
-              not found by sending the same CV to six firms and waiting.
-            </p>
-            <p>
-              Most recruitment in this space is optimised for speed and volume.
-              Neither produces the right result when the role is genuinely hard to
-              define and the candidate pool is genuinely small.
-            </p>
-            <p>
-              The firms getting it right are the ones where someone internal has
-              enough knowledge to ask hard questions in a brief. Most do not have
-              that person yet. We are that person.
+              We work in one market. That is deliberate. The knowledge compounds.
+              The network is built on relationships, not registrations. When we
+              approach a candidate, it is because there is a specific reason for
+              the conversation.
             </p>
           </div>
-
-          <div className="problem-stats">
-            <div className="stat-item">
-              <div className="stat-num">50+</div>
-              <div className="stat-label">
-                Countries in CMS's Harvey enterprise deployment. The governance
-                and adoption work is only just beginning.
-              </div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-num">1,300+</div>
-              <div className="stat-label">
-                Documented AI hallucination cases in legal filings, including a
-                Sullivan and Cromwell apology in April 2026.
-              </div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-num">3</div>
-              <div className="stat-label">
-                Years since AI entered legal practice at scale. The talent
-                infrastructure has not kept pace.
-              </div>
-            </div>
+          <div className="approach-pull">
+            "Most firms measure success by volume and speed. We do not."
           </div>
+        </div>
+
+        <div className="pillars">
+          {pillars.map((p) => (
+            <div className="pillar" key={p.num}>
+              <div className="pillar-num">{p.num}</div>
+              <div className="pillar-title">{p.title}</div>
+              <div className="pillar-body">{p.body}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,21 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Zentier — precision hiring for the legal AI market. We work with law firms and legal technology companies on the hires that shape what their AI capability becomes." />
-    <meta property="og:title" content="Zentier — Precision hiring for the legal AI market" />
-    <meta property="og:description" content="A specialist talent firm for the legal AI market in the UK." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://zentiertalent.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <title>Zentier — Precision hiring for the legal AI market</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+import Nav from './components/Nav'
+import Hero from './components/Hero'
+import Problem from './components/Problem'
+import Approach from './components/Approach'
+import Who from './components/Who'
+import About from './components/About'
+import ForClients from './components/ForClients'
+import ForCandidates from './components/ForCandidates'
+import Intel from './components/Intel'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+
+export default function App() {
+  return (
+    <>
+      <h1 className="sr-only">Zentier — Precision hiring for the legal AI market</h1>
+      <Nav />
+      <main>
+        <Hero />
+        <Problem />
+        <Approach />
+        <Who />
+        <About />
+        <ForClients />
+        <ForCandidates />
+        <Intel />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
+}
