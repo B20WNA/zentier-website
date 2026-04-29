@@ -96,6 +96,6 @@ All copy lives inside the component JSX files in `src/components/`. There is no 
 
 ## Notes for the build
 
-- The LinkedIn link in `Contact.jsx` and the URL it points to should be updated to the actual Zentier company page once it exists. Currently set to `linkedin.com/company/zentier` as a placeholder.
+- The LinkedIn link in `Contact.jsx` and the URL it points to should be updated to the actual Zentier company page once it exists. Currently set to `linkedin.com/company/zentiertalent` as a placeholder.
 - The contact email `hello@zentiertalent.com` should be set up before launch.
 - The "Read more →" on the article in `Intel.jsx` is currently visual only. When a second article is added, this can be wired to a separate route or expanded reveal.
